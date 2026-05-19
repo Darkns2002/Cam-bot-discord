@@ -1,0 +1,130 @@
+🧠 1) Création du bot Discord
+Tu es allé sur le Discord Developer Portal
+Tu as créé une application : CamEnforcer
+Tu as activé le bot
+Tu as récupéré un BOT_TOKEN
+
+👉 Ça permet d’identifier ton bot sur Discord
+
+💻 2) Création du projet sur ton PC
+
+Tu as fait :
+
+npm init -y
+
+👉 ça crée ton projet Node.js (package.json)
+
+📦 3) Installation des dépendances
+
+Tu as installé :
+
+npm install discord.js
+
+👉 bibliothèque pour contrôler Discord
+
+🧠 4) Création du code (index.js)
+
+Tu as écrit un bot qui :
+
+🎯 écoute les salons vocaux
+détecte quand quelqu’un entre/sort
+détecte la caméra (selfVideo)
+🔇 logique :
+caméra OFF → mute
+caméra ON → unmute
+sortie salon → unmute
+📌 5) Ajout de plusieurs salons
+
+Tu as évolué de :
+
+CHANNEL_ID
+
+vers :
+
+CAM_CHANNELS = [3 salons]
+
+👉 donc ton bot surveille plusieurs rooms vocales
+
+🔐 6) Problème de sécurité GitHub
+
+Tu as essayé de push ton code :
+
+❌ GitHub a bloqué
+
+Pourquoi ?
+
+👉 tu avais mis ton BOT_TOKEN dans le code
+
+GitHub a détecté :
+
+“secret leak”
+et a refusé le push
+🔧 7) Correction GitHub
+
+Tu as :
+
+retiré le token du code
+ajouté .gitignore
+forcé un nouveau commit
+réussi le push
+🚀 8) Déploiement sur Render
+
+Tu as :
+
+connecté ton repo GitHub
+choisi Render
+essayé Docker ❌ (erreur)
+corrigé vers Background Worker ✔
+⚠️ 9) Erreur Render (TokenInvalid)
+
+Render a crashé car :
+
+👉 le BOT_TOKEN n’était pas correctement injecté
+
+🔑 10) Problème critique
+
+Tu as exposé ton token dans la conversation
+
+👉 donc :
+
+token = compromis
+il doit être reset
+🌐 11) Ajout serveur Express
+
+Tu as ajouté :
+
+app.get("/", ...)
+app.listen(3000)
+
+👉 juste pour garder Render actif (ping UptimeRobot)
+
+🔁 12) UptimeRobot (objectif)
+
+Tu voulais :
+
+garder Render éveillé
+éviter sleep
+
+👉 donc UptimeRobot ping ton serveur HTTP
+
+🟢 13) État actuel de ton système
+
+Tu as maintenant :
+
+✔ Bot Discord
+écoute voice channels
+mute/unmute + cam detection
+✔ Hébergement
+Render (objectif 24/7)
+✔ Monitoring
+UptimeRobot (optionnel)
+⚠️ 14) Problèmes actuels corrigés
+token exposé ❌ → doit être reset
+Render Docker ❌ → corrigé
+env variables ❌ → à bien configurer
+🧠 EN UNE PHRASE
+
+👉 Tu as construit un bot Discord vocal + caméra
+👉 Tu l’as mis sur GitHub
+👉 Tu essaies de le faire tourner 24/7 sur Render
+👉 mais tu es encore en phase de configuration
